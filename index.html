@@ -1,0 +1,118 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Révision de Mathématiques – Version 2</title>
+<style>
+:root{--bg:#f4f6fb;--c:#fff;--t:#1c2333;--m:#667085;--p:#2f6fed;--ok:#188a4a;--okb:#e4f6ec;--ko:#c0392b;--kob:#fdeaea;--b:#d6dbe7;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#12151c;--c:#1c212c;--t:#e8ebf2;--m:#9aa3b5;--p:#6b9bff;--ok:#4cd08a;--okb:#16332380;--ko:#ff7b6b;--kob:#3a1c1c;--b:#323a4b}}
+:root[data-theme="dark"]{--bg:#12151c;--c:#1c212c;--t:#e8ebf2;--m:#9aa3b5;--p:#6b9bff;--ok:#4cd08a;--okb:#16332380;--ko:#ff7b6b;--kob:#3a1c1c;--b:#323a4b}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--t);font:16px/1.55 system-ui,-apple-system,Segoe UI,sans-serif}
+#app{max-width:680px;margin:0 auto;padding:16px}
+h1{font-size:1.3rem;margin:.2em 0}h2{font-size:1.1rem;margin:.2em 0 .8em}
+.card{background:var(--c);border:1px solid var(--b);border-radius:14px;padding:18px;margin-bottom:12px}
+.bar{height:8px;background:var(--b);border-radius:8px;overflow:hidden}.bar i{display:block;height:100%;background:var(--p);transition:width .3s}
+.lab{color:var(--m);font-size:.85rem;margin:8px 0}
+.o{display:block;width:100%;text-align:left;background:var(--c);color:var(--t);border:2px solid var(--b);border-radius:10px;padding:11px 14px;margin:8px 0;font:inherit;cursor:pointer}
+.o.s{border-color:var(--p)}.o.ok{border-color:var(--ok);background:var(--okb)}.o.ko{border-color:var(--ko);background:var(--kob)}
+.tf{display:flex;gap:8px}.tf .o{text-align:center}
+input{width:100%;box-sizing:border-box;padding:12px;font:inherit;border:2px solid var(--b);border-radius:10px;background:var(--c);color:var(--t)}
+.btn{background:var(--p);color:#fff;border:0;border-radius:10px;padding:12px 18px;font:inherit;font-weight:600;cursor:pointer;margin:10px 8px 0 0}
+.btn.g{background:transparent;color:var(--p);border:2px solid var(--p)}
+.fb{border-radius:10px;padding:12px 14px;margin-top:12px}.fb.g{background:var(--okb)}.fb.r{background:var(--kob)}
+.fb ol{margin:6px 0 0;padding-left:20px}
+.big{font-size:2.6rem;font-weight:800;color:var(--p);text-align:center;margin:0}
+.rv{border-bottom:1px solid var(--b);padding:10px 0}.rv small{color:var(--m)}
+.hd{background:var(--p);color:#fff;text-align:center;padding:14px 12px;line-height:1.35}.hd b{display:block;font-size:1.25rem}.hd span{display:block;font-size:.95rem}.kp{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:10px;max-width:260px}.kb{padding:12px;font:inherit;font-size:1.1rem;border:2px solid var(--b);border-radius:10px;background:var(--c);color:var(--t);cursor:pointer}
+@media(pointer:coarse){.kp{display:none}}
+</style></head><body><header class="hd"><b>Collège Saint-Marc</b><span>Révision du mois de novembre</span><span>Quatrième primaire</span></header><div id="app"></div>
+<script>
+const M=(q,o,a,e)=>({t:"m",q,o,a,e}),F=(q,a,e)=>({t:"f",q,a,e}),I=(q,a,e,s,f)=>({t:"i",q,a,e,s,f});
+const Q=[
+M("Quel est le nombre premier dont la somme de ses facteurs est 14 ?",["11","13","17","9"],1,"Un nombre premier a seulement 2 facteurs : 1 et lui-même~1 + 13 = 14, donc le nombre est 13"),
+I("Calcule l’aire du rectangle dont les dimensions sont 40 cm et 7 cm (en cm²)","280","Aire = L × l~40 × 7 = 280 cm²"),
+M("L’aire du carré dont le côté est 9 cm est égale à ……… cm²",["72","64","90","81"],3,"Aire du carré = côté × côté~9 × 9 = 81 cm²"),
+I("Propriété associative : 4 × 7 × 5 = ?","140","Commutativité : l’ordre change, 4 × 7 × 5 = 4 × 5 × 7~Associativité : on écrit des parenthèses, (4 × 5) × 7~(4 × 5) × 7 = 20 × 7 = 140"),
+M("42 est égale à ……… fois 6",["6","7","8","9"],1,"42 ÷ 6 = 7~Vérification : 7 × 6 = 42"),
+I("Le périmètre d’un carré est 32 cm. Écris la longueur de son côté puis son aire (cm et cm²)","8,64","Côté = 32 ÷ 4 = 8 cm~Aire = 8 × 8 = 64 cm²",0,["Côté (cm)","Aire (cm²)"]),
+M("17 et 25 sont-ils premiers ou composés ?",["17 est composé ; 25 est premier","Les deux sont premiers","17 est premier ; 25 est composé","Les deux sont composés"],2,"Facteurs de 17 : 1 et 17 → premier~Facteurs de 25 : 1, 5, 25 → composé"),
+I("Compare 24 et 3 : par quel nombre a faut-il multiplier 3 pour obtenir 24 ? (3 × a = 24). Trouve a","8","a = 24 ÷ 3 = 8~Vérification : 3 × 8 = 24"),
+M("Le nombre ……… est un facteur commun de 15 et 20",["3","5","4","2"],1,"Facteurs de 15 : 1, 3, 5, 15~Facteurs de 20 : 1, 2, 4, 5, 10, 20~Facteur commun : 5"),
+I("Calcule le périmètre du rectangle de longueur 8 m et de largeur 3 m (en m)","22","P = (L + l) × 2~P = (8 + 3) × 2 = 22 m"),
+I("Facteurs communs de 18 et 27 (séparés par des virgules)","1,3,9","Facteurs de 18 : 1, 2, 3, 6, 9, 18~Facteurs de 27 : 1, 3, 9, 27~Facteurs communs : 1, 3 et 9",1),
+F("Le périmètre d’un carré de côté 15 mm est égal à 45 mm.",false,"P = côté × 4~P = 15 × 4 = 60 mm, pas 45 mm"),
+I("Décomposition et associativité : 4 × 60 = ?","240","Décomposition : 60 = 6 × 10~4 × 60 = 4 × 6 × 10~Associativité : on écrit des parenthèses, (4 × 6) × 10~24 × 10 = 240"),
+M("245 × 0 = ………",["2450","245","0","24 500"],2,"Tout nombre multiplié par 0 donne 0"),
+I("Un rectangle a une aire de 56 cm² et une largeur de 7 cm. Écris sa longueur puis son périmètre","8,30","Longueur = aire ÷ largeur = 56 ÷ 7 = 8 cm~P = (7 + 8) × 2 = 30 cm",0,["Longueur (cm)","Périmètre (cm)"]),
+I("Trouve le P.G.C.D de 18 et 30","6","18 = 2 × 3 × 3 ; 30 = 2 × 3 × 5~Facteurs communs : 2 × 3 = 6"),
+M("Écris l’équation qui représente : 45 égale 5 fois a",["5 + a = 45","a ÷ 5 = 45","5 × a = 45","45 × 5 = a"],2,"« 45 égale 5 fois a » s’écrit 5 × a = 45~Donc a = 45 ÷ 5 = 9"),
+I("Combien de dix y a-t-il dans le nombre 260 ?","26","260 ÷ 10 = 26"),
+M("Le nombre ……… est un nombre composé",["13","19","23","15"],3,"Un nombre composé a plus de 2 facteurs~15 : 1, 3, 5, 15~13, 19 et 23 sont premiers"),
+I("Figure en L : côtés 12 cm (haut), 3 cm, 5 cm, 8 cm (droite). Les côtés non écrits sont 5 cm (8 − 3) et 7 cm (12 − 5). Trouve le périmètre (en cm)<br><svg viewBox='-34 -20 270 160' style='width:100%;max-width:320px;display:block;margin:10px auto' fill='none' stroke='currentColor' stroke-width='2'><polygon points='0,0 180,0 180,120 75,120 75,45 0,45' fill='rgba(120,140,200,.25)'/><g fill='currentColor' stroke='none' font-size='13' text-anchor='middle'><text x='90' y='-6'>12 cm</text><text x='-18' y='28'>3 cm</text><text x='37' y='62'>5 cm</text><text x='205' y='64'>8 cm</text></g></svg>","40","On additionne tous les côtés~P = 12 + 8 + 7 + 5 + 5 + 3 = 40 cm"),
+I("Écris les facteurs communs de 8 et 4 (virgules)","1,2,4","Facteurs de 8 : 1, 2, 4, 8 ; facteurs de 4 : 1, 2, 4~Communs : 1, 2 et 4",1),
+I("Propriété commutative : 6 × a = 9 × 6. Trouve a","9","Propriété de commutativité : quand l’ordre des facteurs change, le produit ne change pas~9 × 6 = 6 × 9, donc a = 9"),
+M("Le nombre ……… est un facteur de 18",["4","5","6","7"],2,"18 ÷ 6 = 3 sans reste~Donc 6 est un facteur de 18"),
+I("Un rectangle a un périmètre de 36 m et une longueur de 12 m. Calcule sa largeur (en m)","6","Largeur = (P ÷ 2) − L~(36 ÷ 2) − 12 = 18 − 12 = 6 m"),
+I("Facteurs de 30 (arc-en-ciel) : écris-les séparés par des virgules","1,2,3,5,6,10,15,30","On associe les paires : 1 × 30, 2 × 15, 3 × 10, 5 × 6~Facteurs : 1, 2, 3, 5, 6, 10, 15 et 30~Arc-en-ciel des facteurs de 30 :<svg viewBox='0 0 355 116' style='width:100%;max-width:380px;display:block;margin:8px auto' fill='none' stroke='currentColor' stroke-width='2'><path d='M20,90 A157.5,80 0 0 1 335,90'/><path d='M65,90 A112.5,62 0 0 1 290,90'/><path d='M110,90 A67.5,44 0 0 1 245,90'/><path d='M155,90 A22.5,26 0 0 1 200,90'/><g fill='currentColor' stroke='none' font-size='15' text-anchor='middle'><text x='20' y='110'>1</text><text x='65' y='110'>2</text><text x='110' y='110'>3</text><text x='155' y='110'>5</text><text x='200' y='110'>6</text><text x='245' y='110'>10</text><text x='290' y='110'>15</text><text x='335' y='110'>30</text></g></svg>",1),
+M("Phrase mathématique pour : 5 ; 15 ; 45",["5, 15 et 45 sont tous premiers","45 est un facteur de 5","5 est un facteur de 15 et 45 ; 15 et 45 sont des multiples de 5","Il n’y a aucune relation"],2,"15 = 5 × 3 et 45 = 5 × 9~Ce sont des multiples de 5 ; 5 est un facteur de 45"),
+I("Une voiture a 5 places, un bus 45 places. Équation : 5 × a = 45. Combien de fois ?","9","a = 45 ÷ 5 = 9~Le bus a 9 fois plus de places"),
+M("Le nombre ……… est facteur commun de 36 et 54",["4","5","9","8"],2,"Facteurs de 36 : 1, 2, 3, 4, 6, 9, 12, 18, 36~Facteurs de 54 : 1, 2, 3, 6, 9, 18, 27, 54~Parmi les choix, seul 9 est commun"),
+I("Calcule le périmètre d’un carré dont le côté est 35 cm (en cm)","140","P = côté × 4~35 × 4 = 140 cm"),
+F("6 est un facteur de 54, car 54 est pair et 5 + 4 = 9 est un multiple de 3.",true,"54 est pair, donc multiple de 2~5 + 4 = 9, multiple de 3, donc 54 est multiple de 3~54 est multiple de 2 et de 3, donc de 6"),
+I("L’aire d’un tableau carré est 81 cm². Écris la longueur de son côté puis son périmètre","9,36","Côté : 9 × 9 = 81, donc 9 cm~P = 9 × 4 = 36 cm",0,["Côté (cm)","Périmètre (cm)"]),
+I("Trouve le P.G.C.D de 24 et 36","12","24 = 2 × 2 × 2 × 3 ; 36 = 2 × 2 × 3 × 3~Facteurs communs : 2 × 2 × 3 = 12"),
+I("Diagramme en barres pour comparer 35 et 7 : 35 = 7 × a. Trouve a","5","a = 35 ÷ 7 = 5~35 est 5 fois 7~Diagramme en barres : 35 est partagé en 5 parts égales de 7<svg viewBox='0 0 240 112' style='width:100%;max-width:260px;display:block;margin:8px auto' fill='none' stroke='currentColor' stroke-width='2'><rect x='20' y='8' width='200' height='32'/><rect x='20' y='50' width='40' height='32'/><rect x='60' y='50' width='40' height='32'/><rect x='100' y='50' width='40' height='32'/><rect x='140' y='50' width='40' height='32'/><rect x='180' y='50' width='40' height='32'/><g fill='currentColor' stroke='none' font-size='14' text-anchor='middle'><text x='120' y='29'>35</text><text x='40' y='71'>7</text><text x='80' y='71'>7</text><text x='120' y='71'>7</text><text x='160' y='71'>7</text><text x='200' y='71'>7</text><text x='120' y='104'>a = 5</text></g></svg>"),
+M("Le périmètre d’un rectangle dont la longueur est 9 cm et la largeur 5 cm est égal à ……… cm",["45","14","28","19"],2,"P = (L + l) × 2~P = (9 + 5) × 2 = 14 × 2 = 28 cm"),
+I("Le prix d’un livre est 75 livres. Quel est le prix de 100 livres de même type ?","7500","75 × 100 = 7 500"),
+M("Quel groupe contient 4 facteurs communs de 18 et 36 ?",["2, 5, 8, 11","1, 4, 5, 7","1, 2, 3, 6","7, 8, 9, 10"],2,"Facteurs de 18 : 1, 2, 3, 6, 9, 18~Tous divisent aussi 36 : 1, 2, 3, 6 sont communs"),
+M("Quels rectangles différents ont chacun une aire de 36 cm² ?",["8 cm × 5 cm  et  12 cm × 4 cm","9 cm × 3 cm  et  18 cm × 3 cm","6 cm × 5 cm  et  9 cm × 5 cm","9 cm × 4 cm  et  18 cm × 2 cm"],3,"Aire = longueur × largeur = 36~9 × 4 = 36 et 18 × 2 = 36"),
+I("Écris les facteurs communs de 7 et 3 (virgules)","1","Facteurs de 7 : 1, 7 ; facteurs de 3 : 1, 3~Commun : 1",1),
+I("Quel nombre a faut-il multiplier par 3 pour obtenir 39 ? (a × 3 = 39). Trouve la valeur de a","13","a = 39 ÷ 3 = 13"),
+I("Décomposition et associativité : 7 × 8 000 = ?","56000","Décomposition : 8 000 = 8 × 1 000~7 × 8 000 = 7 × 8 × 1 000~Associativité : on écrit des parenthèses, (7 × 8) × 1 000~56 × 1 000 = 56 000"),
+M("Phrase mathématique pour : 3 ; 4 ; 6 ; 12",["12 est un facteur de 3","3, 4, 6 et 12 sont tous premiers","4 est un multiple de 12","3, 4, 6 et 12 sont des facteurs de 12 ; 12 est un multiple de 3, 4, 6 et 12"],3,"12 = 3 × 4 = 2 × 6~3, 4, 6 et 12 divisent 12 : ce sont des facteurs de 12~12 est un multiple de 3, de 4, de 6 et de 12")
+];
+let i=0,R=[],sel=-1,cur=null;
+const $=s=>document.querySelector(s),app=$("#app");
+const norm=(x,s)=>{let n=String(x).replace(/\s/g,"").match(/\d+/g)||[];if(s)n=n.map(Number).sort((a,b)=>a-b);return n.join(",")};
+const lab=k=>["Question "+(k+1)+" sur "+Q.length,Q[k].q];
+const ans=x=>x.t=="m"?x.o[x.a]:x.t=="f"?(x.a?"Vrai":"Faux"):x.a.split(",").join(" ; ");
+const uans=(x,v)=>x.t=="m"?x.o[v]:x.t=="f"?(v?"Vrai":"Faux"):v;
+const steps=e=>"<ol>"+e.split("~").map(s=>"<li>"+s+"</li>").join("")+"</ol>";
+function show(){
+ if(i>=Q.length)return end();
+ const x=Q[i],[l,q]=lab(i);sel=-1;let h="";
+ if(x.t=="m")h=x.o.map((o,k)=>`<button class="o" data-k="${k}">${String.fromCharCode(65+k)}. ${o}</button>`).join("");
+ else if(x.t=="f")h=`<div class="tf"><button class="o" data-k="1">✔ Vrai</button><button class="o" data-k="0">✘ Faux</button></div>`;
+ else h=x.f?x.f.map((p,k)=>`<div class="lab">${p}</div><input id="v${k}" placeholder="Écris ta réponse" autocomplete="off">`).join(""):`<input id="v" placeholder="Écris ta réponse" autocomplete="off">`;
+ app.innerHTML=`<div class="bar"><i style="width:${i/Q.length*100}%"></i></div><p class="lab">${l}</p><div class="card"><h2>${q}</h2><div id="in">${h}</div><div id="fb"></div>${i>0?'<button class="btn g" id="pv">← Précédent</button>':""}<button class="btn" id="go">Vérifier</button></div>`;
+ document.querySelectorAll(".o").forEach(b=>b.onclick=()=>{if(R[i])return;sel=+b.dataset.k;document.querySelectorAll(".o").forEach(c=>c.classList.toggle("s",c==b))});
+ const v=$("#v")||$("#v0");if(v){document.querySelectorAll("input").forEach(n=>n.onkeydown=e=>e.key=="Enter"&&$("#go").click())}
+ cur=null;document.querySelectorAll("input").forEach(n=>n.onfocus=()=>cur=n);
+ if(x.t=="i"){const kp=document.createElement("div");kp.className="kp";kp.innerHTML=["1","2","3","4","5","6","7","8","9",",","0","⌫"].map(k=>`<button type="button" class="kb">${k}</button>`).join("");$("#in").appendChild(kp);kp.onmousedown=e=>e.preventDefault();kp.onclick=e=>{const b=e.target.closest(".kb");if(!b||R[i])return;const n=cur||document.querySelector("input");n.value=b.textContent=="⌫"?n.value.slice(0,-1):n.value+b.textContent;n.focus()}}
+ $("#go").onclick=check;
+ if(i>0)$("#pv").onclick=()=>{i--;show();scrollTo(0,0)};
+ if(R[i])done();
+}
+function done(){
+ const x=Q[i],{v,ok}=R[i];
+ if(x.t=="i"){const ins=[...document.querySelectorAll("input")],vs=String(v).split(" ; ");ins.forEach((n,k)=>{n.value=ins.length>1?vs[k]:v;n.disabled=true});const kp=$(".kp");if(kp)kp.style.display="none"}
+ else document.querySelectorAll(".o").forEach(b=>{const k=+b.dataset.k,c=x.t=="m"?x.a:+x.a;b.classList.remove("s");if(k==c)b.classList.add("ok");else if(k==v)b.classList.add("ko")});
+ $("#fb").innerHTML=`<div class="fb ${ok?"g":"r"}"><b>${ok?"✅ Bonne réponse !":"❌ Réponse incorrecte"}</b>${ok?"":"<br>Bonne réponse : <b>"+ans(x)+"</b>"}<br>Explication :${steps(x.e)}</div>`;
+ $("#go").textContent=i==Q.length-1?"Voir ma note →":"Suivant →";
+}
+function check(){
+ if(R[i]){i++;return show()}
+ const x=Q[i];let v,ok;
+ if(x.t=="i"){const ins=[...document.querySelectorAll("input")],vs=ins.map(n=>n.value.trim());if(vs.some(s=>!s))return;v=vs.join(" ; ");ok=norm(v,x.s)==norm(x.a,x.s)}
+ else{if(sel<0)return;v=sel;ok=x.t=="m"?sel==x.a:!!sel==x.a}
+ R[i]={v,ok};done();
+}
+function end(){
+ const n=R.filter(r=>r.ok).length,note=(n/Q.length*20).toFixed(1).replace(".0",""),p=n/Q.length;
+ const msg=p>=.9?"Excellent travail ! 🌟":p>=.7?"Très bien, continue ! 👏":p>=.5?"Pas mal, revois les explications. 💪":"Courage ! Recommence après avoir lu les corrections. 📘";
+ app.innerHTML=`<div class="card"><h1 style="text-align:center">Résultat</h1><p class="big">${note} / 20</p><p style="text-align:center">${n} bonnes réponses sur ${Q.length}<br>${msg}</p><div style="text-align:center"><button class="btn" id="r1">🔄 Recommencer</button><button class="btn g" id="r2">👁 Afficher les réponses</button></div></div><div id="rv"></div>`;
+ $("#r1").onclick=()=>{i=0;R=[];show();scrollTo(0,0)};
+ $("#r2").onclick=()=>{rev();$("#rv").scrollIntoView()};
+}
+function rev(){
+ $("#rv").innerHTML=`<div class="card"><h2>Révision corrigée</h2>`+Q.map((x,k)=>{const r=R[k],[l,q]=lab(k);return `<div class="rv"><small>${l}</small><br><b>${q}</b><br>${r.ok?"✅":"❌"} Ta réponse : ${uans(x,r.v)}<br>✔ Réponse : <b>${ans(x)}</b>${steps(x.e)}</div>`}).join("")+`</div>`;
+}
+show();
+</script></body></html>
